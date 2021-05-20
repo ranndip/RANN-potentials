@@ -126,4 +126,5 @@ _calibrationparameters_ specifies a number of parameters used to calibrate the p
 
 ### Formulation
 In the RANN formulation, the total energy of a system of atoms is given by:
+
 <img src="https://latex.codecogs.com/svg.latex?E&space;=&space;\sum_{\alpha}&space;E^{\alpha}\\\\&space;E^{\alpha}&space;=&space;{}^{N}\!A^{\alpha}\\\\&space;{}^{n&plus;1}\!A_i^{\alpha}&space;=&space;{}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}&plus;{}^{n}\!B_i\right)\\\\&space;{}^{0}\!A_i^{\alpha}&space;=&space;\left[\begin{array}{c}&space;{}^1\!S\!f^\alpha\\&space;{}^2\!S\!f^\alpha&space;\\...\\\end{array}\right]" title="E = \sum_{\alpha} E^{\alpha}\\\\ E^{\alpha} = {}^{N}\!A^{\alpha}\\\\ {}^{n+1}\!A_i^{\alpha} = {}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}+{}^{n}\!B_i\right)\\\\ {}^{0}\!A_i^{\alpha} = \left[\begin{array}{c} {}^1\!S\!f^\alpha\\ {}^2\!S\!f^\alpha \\...\\\end{array}\right]" />
