@@ -159,3 +159,16 @@ The structural fingerprints are computed as follows:
 
 - bondspin
 <img src="https://latex.codecogs.com/svg.latex?\!S\!f_{ij}^\alpha&space;=&space;\sum_{\beta}\sum_{\gamma}&space;\left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j&space;\frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j&space;\frac{r^{\alpha\gamma}}{r_e}}\left(\mathbf{s^\alpha&space;\cdot&space;s^\beta}\right)\left(\mathbf{s^\alpha&space;\cdot&space;s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" title="\!S\!f_{ij}^\alpha = \sum_{\beta}\sum_{\gamma} \left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j \frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j \frac{r^{\alpha\gamma}}{r_e}}\left(\mathbf{s^\alpha \cdot s^\beta}\right)\left(\mathbf{s^\alpha \cdot s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" />
+
+- radialscreenedspin
+<img src="https://latex.codecogs.com/svg.latex?\!S\!f_i^\alpha&space;=&space;\sum_{\beta}&space;\left(\frac{r^{\alpha\beta}}{r_e}\right)^ie^{-\delta_i&space;\frac{r^{\alpha\beta}}{r_e}}S^{\alpha\beta}\left(\mathbf{s^\alpha&space;\cdot&space;s^\beta}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)" title="\!S\!f_i^\alpha = \sum_{\beta} \left(\frac{r^{\alpha\beta}}{r_e}\right)^ie^{-\delta_i \frac{r^{\alpha\beta}}{r_e}}S^{\alpha\beta}\left(\mathbf{s^\alpha \cdot s^\beta}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)" />
+
+- bondscreenedspin
+<img src="https://latex.codecogs.com/svg.latex?\!S\!f_{ij}^\alpha&space;=&space;\sum_{\beta}\sum_{\gamma}&space;\left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j&space;\frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j&space;\frac{r^{\alpha\gamma}}{r_e}}S^{\alpha\beta}S^{\alpha\gamma}\left(\mathbf{s^\alpha&space;\cdot&space;s^\beta}\right)\left(\mathbf{s^\alpha&space;\cdot&space;s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" title="\!S\!f_{ij}^\alpha = \sum_{\beta}\sum_{\gamma} \left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j \frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j \frac{r^{\alpha\gamma}}{r_e}}S^{\alpha\beta}S^{\alpha\gamma}\left(\mathbf{s^\alpha \cdot s^\beta}\right)\left(\mathbf{s^\alpha \cdot s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" />
+
+The activation functions are computed as follows:
+- sigI
+<img src="https://latex.codecogs.com/svg.latex?F^{sigI}(x)&space;=&space;0.1x&plus;0.9ln\left(e^x&plus;1\right)" title="F^{sigI}(x) = 0.1x+0.9ln\left(e^x+1\right)" />
+
+- linear
+<img src="https://latex.codecogs.com/svg.latex?F^{linear}(x)&space;=&space;x" title="F^{linear}(x) = x" />
