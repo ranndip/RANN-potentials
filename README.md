@@ -60,3 +60,70 @@ The following fingerprint styles are currently defined. See the :ref:`formulatio
 - bondscreenedspin
 
 _fingerprintconstants_ specifies the metaparameters for a defined fingerprint. For all radial styles, re, rc, alpha, dr, o, and n must be specified. re should usually be the stable interatomic distance, rc is the cutoff radius, dr is the cutoff smoothing distance, o is the lowest radial power term (which may be negative), and n is the highest power term. The total length of the fingerprint vector is <img src="https://latex.codecogs.com/svg.latex?(n-o&plus;1)" title="(n-o+1)" />. alpha is a list of decay parameters used for exponential decay of radial contributions. It may be set proportionally to the bulk modulus similarly to MEAM potentials, but other values may provided better fitting in special cases. Bond style fingerprints require specification of <img src="https://latex.codecogs.com/svg.latex?r_{e},&space;r_{c},&space;\alpha_{k},&space;dr,&space;k," title="r_{e}, r_{c}, \alpha_{k}, dr, k," /> and <img src="https://latex.codecogs.com/svg.latex?m" title="m" />. Here <img src="https://latex.codecogs.com/svg.latex?m" title="m" /> is the power of the bond cosines and <img src="https://latex.codecogs.com/svg.latex?k" title="k" /> is the number of decay parameters. Cosine powers go from 0 to <img src="https://latex.codecogs.com/svg.latex?m-1" title="m-1" /> and are each computed for all values of <img src="https://latex.codecogs.com/svg.latex?\alpha_{k}" title="\alpha_{k}" />. Thus the total length of the fingerprint vector is <img src="https://latex.codecogs.com/svg.latex?m*k" title="m*k" />.
+
+```
+fingerprintconstants:Mg_Mg:radialscreened_0:re:
+3.193592
+fingerprintconstants:Mg_Mg:radialscreened_0:rc:
+6.000000
+fingerprintconstants:Mg_Mg:radialscreened_0:alpha:
+5.520000 5.520000 5.520000 5.520000 5.520000
+fingerprintconstants:Mg_Mg:radialscreened_0:dr:
+2.806408
+fingerprintconstants:Mg_Mg:radialscreened_0:o:
+-1
+fingerprintconstants:Mg_Mg:radialscreened_0:n:
+3
+```
+screening specifies the Cmax and Cmin values used in the screening fingerprints. Neighbors' contribution to the fingerprint are ommitted if they are blocked by a closer neighbor, and reduced if they are partially blocked. Larger values of <img src="https://latex.codecogs.com/svg.latex?C_{min}" title="C_{min}" /> correspond to neighbors being blocked more easily. <img src="https://latex.codecogs.com/svg.latex?C_{max}" title="C_{max}" /> cannot be greater than 3, and <img src="https://latex.codecogs.com/svg.latex?C_{min}" title="C_{min}" /> cannot be greater than  <img src="https://latex.codecogs.com/svg.latex?C_{max}" title="C_{max}" /> or less than zero. Screening may be ommitted in which case the default values <img src="https://latex.codecogs.com/svg.latex?C_{max}=2.8" title="C_{max}=2.8" />, <img src="https://latex.codecogs.com/svg.latex?C_{min}=0.8" title="C_{min}=0.8" /> are used. Since screening is a bond computation, it is specified separately for each combination of three elements in which the latter two may be interchanged with no effect.
+```
+screening:Mg_Mg_Mg:Cmax:
+2.800000
+screening:Mg_Mg_Mg:Cmin:
+0.400000
+```
+_networklayers_ species the size of the neural network for each atom. It counts both the input and output layer and so is 2+hiddenlayers.
+```
+networklayers:Mg:
+3
+```
+_layersize_ specifies the length of each layer, including the input layer and output layer. The input layer is layer 0. The size of the input layer size must match the summed length of all the fingerprints for that element, and the output layer size must be 1:
+```
+layersize:Mg:0:
+14
+layersize:Mg:1:
+20
+layersize:Mg:2:
+1
+```
+weight specifies the weight for a given element and layer. Weight cannot be specified for the output layer. The weight of layer <img src="https://latex.codecogs.com/svg.latex?i" title="i" /> is a mxn matrix where m is the layer size of <img src="https://latex.codecogs.com/svg.latex?i" title="i" /> and <img src="https://latex.codecogs.com/svg.latex?n" title="n" /> is the layer size of <img src="https://latex.codecogs.com/svg.latex?i&plus;1" title="i+1" />:
+```
+weight:Mg:0:
+w11 w12 w13 ...
+w21 w22 w23 ...
+...
+```
+bias specifies the bias for a given element and layer. Bias cannot be specified for the output layer. The bias of layer <img src="https://latex.codecogs.com/svg.latex?i" title="i" />  is a <img src="https://latex.codecogs.com/svg.latex?n\times&space;1" title="n\times 1" /> vector where <img src="https://latex.codecogs.com/svg.latex?n" title="n" />  is the layer size of  <img src="https://latex.codecogs.com/svg.latex?i&plus;1" title="i+1" />:
+```
+bias:Mg:0:
+b1
+b2
+b3
+...
+```
+_activationfunctions_ specifies the activation function for a given element and layer. Activation functions cannot be specified for the output layer:
+```
+activationfunctions:Mg:0:
+sigI
+activationfunctions:Mg:1:
+linear
+```
+The following activation styles are currently specified. See the :ref:`formulation section <activations>` below for their definitions.
+- sigI
+- linear
+
+_calibrationparameters_ specifies a number of parameters used to calibrate the potential. These are ignored by LAMMPS.
+
+### Formulation
+In the RANN formulation, the total energy of a system of atoms is given by:
+<img src="https://latex.codecogs.com/svg.latex?E&space;=&space;\sum_{\alpha}&space;E^{\alpha}\\\\&space;E^{\alpha}&space;=&space;{}^{N}\!A^{\alpha}\\\\&space;{}^{n&plus;1}\!A_i^{\alpha}&space;=&space;{}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}&plus;{}^{n}\!B_i\right)\\\\&space;{}^{0}\!A_i^{\alpha}&space;=&space;\left[\begin{array}{c}&space;{}^1\!S\!f^\alpha\\&space;{}^2\!S\!f^\alpha&space;\\...\\\end{array}\right]" title="E = \sum_{\alpha} E^{\alpha}\\\\ E^{\alpha} = {}^{N}\!A^{\alpha}\\\\ {}^{n+1}\!A_i^{\alpha} = {}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}+{}^{n}\!B_i\right)\\\\ {}^{0}\!A_i^{\alpha} = \left[\begin{array}{c} {}^1\!S\!f^\alpha\\ {}^2\!S\!f^\alpha \\...\\\end{array}\right]" />
