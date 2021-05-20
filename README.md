@@ -1,4 +1,4 @@
-### Potential file syntax
+###  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)  Potential file syntax
 
 The RANN potential is defined by a single text file which contains all the fitting parameters for the alloy system. The potential file also defines the active fingerprints, network architecture, activation functions, etc. The potential file is divided into several sections which are identified by one of the following keywords:
 
@@ -125,7 +125,7 @@ The following activation styles are currently specified. See the :ref:`formulati
 
 _calibrationparameters_ specifies a number of parameters used to calibrate the potential. These are ignored by LAMMPS.
 
-### Formulation
+### ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)  Formulation
 In the RANN formulation, the total energy of a system of atoms is given by:
 
 <img src="https://latex.codecogs.com/svg.latex?E&space;=&space;\sum_{\alpha}&space;E^{\alpha}\\\\&space;E^{\alpha}&space;=&space;{}^{N}\!A^{\alpha}\\\\&space;{}^{n&plus;1}\!A_i^{\alpha}&space;=&space;{}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}&plus;{}^{n}\!B_i\right)\\\\&space;{}^{0}\!A_i^{\alpha}&space;=&space;\left[\begin{array}{c}&space;{}^1\!S\!f^\alpha\\&space;{}^2\!S\!f^\alpha&space;\\...\\\end{array}\right]" title="E = \sum_{\alpha} E^{\alpha}\\\\ E^{\alpha} = {}^{N}\!A^{\alpha}\\\\ {}^{n+1}\!A_i^{\alpha} = {}^{n}\!F\left({}^{n}\!W_{ij}{\;}^{n}\!A_j^{\alpha}+{}^{n}\!B_i\right)\\\\ {}^{0}\!A_i^{\alpha} = \left[\begin{array}{c} {}^1\!S\!f^\alpha\\ {}^2\!S\!f^\alpha \\...\\\end{array}\right]" />
@@ -166,7 +166,7 @@ The structural fingerprints are computed as follows:
 - bondscreenedspin
 <img src="https://latex.codecogs.com/svg.latex?\!S\!f_{ij}^\alpha&space;=&space;\sum_{\beta}\sum_{\gamma}&space;\left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j&space;\frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j&space;\frac{r^{\alpha\gamma}}{r_e}}S^{\alpha\beta}S^{\alpha\gamma}\left(\mathbf{s^\alpha&space;\cdot&space;s^\beta}\right)\left(\mathbf{s^\alpha&space;\cdot&space;s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" title="\!S\!f_{ij}^\alpha = \sum_{\beta}\sum_{\gamma} \left(cos(\theta_{\alpha\beta\gamma})\right)^ie^{-\delta_j \frac{r^{\alpha\beta}}{r_e}}e^{-\delta_j \frac{r^{\alpha\gamma}}{r_e}}S^{\alpha\beta}S^{\alpha\gamma}\left(\mathbf{s^\alpha \cdot s^\beta}\right)\left(\mathbf{s^\alpha \cdot s^\gamma}\right)f_c\left(\frac{r_c-r^{\alpha\beta}}{dr}\right)f_c\left(\frac{r_c-r^{\alpha\gamma}}{dr}\right)" />
 
-The activation functions are computed as follows:
+The <a name="activations"></a> activation functions are computed as follows:
 - sigI
 <img src="https://latex.codecogs.com/svg.latex?F^{sigI}(x)&space;=&space;0.1x&plus;0.9ln\left(e^x&plus;1\right)" title="F^{sigI}(x) = 0.1x+0.9ln\left(e^x+1\right)" />
 
