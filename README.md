@@ -119,7 +119,7 @@ sigI
 activationfunctions:Mg:1:
 linear
 ```
-The following activation styles are currently specified. See the [formulation section] (#activations) below for their definitions.
+The following activation styles are currently specified. See the [formulation section](#activations) below for their definitions.
 - sigI
 - linear
 
