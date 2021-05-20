@@ -1,3 +1,5 @@
+[LAMMPS implementation of rapid artificial neural network derived interatomic potentials](https://www.sciencedirect.com/science/article/pii/S0927025621002068)
+
 ###  ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)  Potential file syntax
 
 The RANN potential is defined by a single text file which contains all the fitting parameters for the alloy system. The potential file also defines the active fingerprints, network architecture, activation functions, etc. The potential file is divided into several sections which are identified by one of the following keywords:
