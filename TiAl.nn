@@ -1,3 +1,4 @@
+#Predicting Ti-Al Binary Phase Diagram with an Artificial Neural Network Potential - https://arxiv.org/abs/2411.07960
 #iter: 250, evals: 417, e_err: 2.1986465100e-05, e1: 2.1986465100e-05, ev_err 2.4827659842e-05, r_err: 3.6758614946e-08, lambda: 1.8092513943e-05
 atomtypes:
 Al Ti 
